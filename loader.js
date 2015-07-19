@@ -8,12 +8,9 @@
 
 	var LOADER_NAME = "myloader";
 	var LOADER_FN_DEFINE = "define";
-
 	if (global[LOADER_NAME]) return;
 
 	var loader = {};
-	global[LOADER_NAME] = loader;
-
 	var registered_modules = {};
 	var loaded_modules = {};
 	var on_modules_loaded = {};
@@ -89,6 +86,7 @@
 		}
 	};
 
+	global[LOADER_NAME] = loader;
 	global[LOADER_FN_DEFINE] = function (module_name, dependences, fn) {
 		if (typeof dependences == "function") {
 			fn = dependences;
