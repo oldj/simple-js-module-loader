@@ -16,8 +16,10 @@
 	var on_modules_loaded = {};
 	var doc = document;
 	var node_script = doc.getElementsByTagName("script")[0];
+	var _idx = 0;
 
 	function Loader(name, deps, callback) {
+		console.log("name", name);
 		this.name = name;
 		this.deps = deps;
 		this.callback = callback;
@@ -33,7 +35,7 @@
 				this.loaded(this.name);
 			}
 
-			for (var i = 0; i < this.deps.length; i ++) {
+			for (var i = 0; i < this.deps.length; i++) {
 				this.loadModule(this.deps[i]);
 			}
 		},
@@ -61,7 +63,7 @@
 		},
 
 		loaded: function () {
-			this.deps_left --;
+			this.deps_left--;
 			if (this.deps_left <= 0) {
 				this.run();
 			}
@@ -73,7 +75,7 @@
 			var modules = [];
 			var i;
 
-			for (i = 0; i < this.deps.length; i ++) {
+			for (i = 0; i < this.deps.length; i++) {
 				modules.push(loaded_modules[this.deps[i]]);
 			}
 			loaded_modules[this.name] = this.callback.apply(null, modules) || {};
@@ -107,7 +109,7 @@
 	loader.register = function (configs) {
 		if (Object.prototype.toString.call(configs) === "[object Array]") {
 			// 传入的是一个数组
-			for (var i = 0; i < configs.length; i ++) {
+			for (var i = 0; i < configs.length; i++) {
 				loader.register(configs[i]);
 			}
 		} else {
@@ -120,7 +122,7 @@
 			modules = [modules];
 		}
 
-		new Loader(null, modules, callback);
+		new Loader(_idx++, modules, callback);
 	};
 
 })(window);
