@@ -15,7 +15,6 @@
 	var loaded_modules = {};
 	var on_modules_loaded = {};
 	var doc = document;
-	var node_script = doc.getElementsByTagName("script")[0];
 	var _idx = 0;
 
 	function Loader(name, deps, callback) {
@@ -54,6 +53,7 @@
 			}
 			var el = doc.createElement("script");
 			el.src = m.url;
+			var node_script = doc.getElementsByTagName("script")[0];
 			node_script.parentNode.insertBefore(el, node_script);
 
 			on_modules_loaded[name] = on_modules_loaded[name] || [];
