@@ -3,35 +3,17 @@
 <head lang="zh-cn">
 	<meta charset="UTF-8">
 	<title>a simple js loader</title>
+	<link rel="stylesheet" href="../node_modules/mocha/mocha.css"/>
+	<script src="../node_modules/chai/chai.js"></script>
+	<script src="../node_modules/mocha/mocha.js"></script>
 	<script src="../loader.js"></script>
 </head>
 
 <body>
 
-<p>a simple js loader.</p>
+<div id="mocha"></div>
 
-<script>
-	myloader.register([{
-		name: "a",
-		url: "./ma.js"
-	}, {
-		name: "b",
-		url: "./mb.js"
-	}, {
-		name: "c",
-		url: "./mc.js"
-	}, {
-		name: "d",
-		url: "./md.js"
-	}]);
-
-	myloader.use("a", function (a) {
-		a.hello();
-	});
-
-	myloader.use("b", function (b) {
-		console.log("use #2");
-	});
-</script>
+<script>mocha.setup('bdd');</script>
+<script src="t0.js"></script>
 </body>
 </html>

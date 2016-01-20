@@ -1,0 +1,27 @@
+{
+  "name": "simple-js-module-loader",
+  "version": "1.0.0",
+  "description": "a simple js module loader.",
+  "main": "loader.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oldj/simple-js-module-loader.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oldj/simple-js-module-loader/issues"
+  },
+  "homepage": "https://github.com/oldj/simple-js-module-loader#readme",
+  "devDependencies": {
+    "chai": "~3.4.1",
+    "mocha": "~2.3.4"
+  }
+}
